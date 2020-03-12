@@ -1,0 +1,14 @@
+export const LANDING = "/landing";
+export const SIGNUP = "/signup";
+export const SIGNIN = "/signin";
+export const HOME = "/";
+export const ABOUT = "/about";
+export const ACCOUNT = "/account";
+export const PROFILE = "/profile";
+export const ADMIN = "/admin";
+export const REVIEWS = "/reviews";
+export const ADDREVIEW = "/add-review";
+export const REVIEWPAGE = "/reviews/:id";
+export const PASSWORD_FORGET = "/pw-forget";
+export const RATINGSPAGE = "/rating";
+export const SEARCH = "/search";
