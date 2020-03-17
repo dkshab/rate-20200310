@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import * as ROUTES from "../constants/routes";
 import { UserContext } from "../context/providers/UserProvider";
+import { signOut } from "../firebase";
 
 const NavBar = props => {
   const user = useContext(UserContext);
@@ -44,11 +45,14 @@ const NavBar = props => {
               <Link to={ROUTES.ADMIN}>Admin</Link>
             </li>
             <li>
+              <Link to={ROUTES.REVIEWS}>Reviews</Link>
+            </li>
+            <li>
               <Link to={ROUTES.ACCOUNT}>Account</Link>
             </li>
             {user && (
               <li>
-                <Link to={ROUTES.SIGNIN}>Sign Out</Link>
+                <button onClick={signOut}>Sign Out</button>
               </li>
             )}
             {!user && (

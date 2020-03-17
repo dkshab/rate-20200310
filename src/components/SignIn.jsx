@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { signInWithGoogle, auth } from "../firebase";
-import withUser from "../context/withUser";
+
+import * as ROUTES from "../constants/routes";
+import { withRouter } from "react-router-dom";
 
 class SignIn extends Component {
   state = { email: "", password: "" };
@@ -15,16 +17,24 @@ class SignIn extends Component {
     event.preventDefault();
     const { email, password } = this.state;
 
-    const resp = await auth.signInWithEmailAndPassword(email, password);
-
-    this.setState({ email: "", password: "" }, () => {
-      console.log(resp);
-    });
+    await auth
+      .signInWithEmailAndPassword(email, password)
+      .then(response => {
+        this.setState({ email: "", password: "" }, () => {
+          console.log(response);
+        });
+      })
+      .then(() => {
+        this.props.history.push(ROUTES.HOME);
+      })
+      .catch(error => {
+        console.error(error);
+      });
   };
 
   render() {
     const { email, password } = this.state;
-    console.log(this.props);
+    //console.log(this.props);
     return (
       <div className="SignIn">
         <form onSubmit={this.handleSubmit}>
@@ -59,4 +69,4 @@ class SignIn extends Component {
   }
 }
 
-export default withUser(SignIn);
+export default withRouter(SignIn);
