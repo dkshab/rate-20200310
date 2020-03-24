@@ -45,7 +45,7 @@ const NavBar = props => {
               <Link to={ROUTES.ADMIN}>Admin</Link>
             </li>
             <li>
-              <Link to={ROUTES.REVIEWS}>Reviews</Link>
+              <Link to={ROUTES.WINES}>Wines</Link>
             </li>
             <li>
               <Link to={ROUTES.ACCOUNT}>Account</Link>

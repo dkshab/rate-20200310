@@ -6,11 +6,14 @@ import "./sass/index.scss";
 
 import Application from "./apps/Application";
 import UserProvider from "./context/providers/UserProvider";
+import WinesProvider from "./context/providers/WinesProvider";
 
 render(
   <Router>
     <UserProvider>
-      <Application />
+      <WinesProvider>
+        <Application />
+      </WinesProvider>
     </UserProvider>
   </Router>,
   document.getElementById("root")

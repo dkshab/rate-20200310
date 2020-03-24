@@ -1,5 +1,7 @@
 @import "_variables";
 @import "_account";
+@import "_wines";
+@import "_ratings";
 
 @mixin button($color) {
   background-color: $color;
@@ -10,6 +12,10 @@
   &:active {
     background-color: lighten($color, 20);
   }
+}
+
+@mixin transition($args...) {
+  transition: $args;
 }
 
 html {
@@ -106,19 +112,6 @@ button,
   }
 }
 
-// button {
-//   font-weight: 400;
-//   color: $white;
-//   cursor: pointer;
-//   text-align: center;
-//   border: 1px solid transparent;
-//   font-size: 1.25rem;
-//   padding: 0.375rem 0.75rem;
-//   line-height: 1.4;
-//   border-radius: 0.25rem;
-//   background-color: #007bff;
-// }
-
 .HomePage {
   margin: 0 auto;
 
@@ -171,5 +164,37 @@ button,
       line-height: 2.6;
       margin-right: 0.3rem;
     }
+  }
+}
+
+// modal
+#modal {
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal:empty {
+  display: none;
+}
+
+#modal > div {
+  background-color: white;
+  max-width: 500px;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.star-rating {
+  .selected {
+    color: orange;
   }
 }

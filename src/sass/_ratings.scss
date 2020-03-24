@@ -1,0 +1,110 @@
+.Ratings {
+  margin: 0 auto;
+  width: 50vw;
+  section {
+    button {
+      margin-bottom: 1rem;
+    }
+    .ratings-bar {
+      margin-bottom: 1rem;
+      background-color: red;
+      .heading {
+        font-size: 25px;
+        margin-right: 25px;
+      }
+      .fa {
+        font-size: 25px;
+        margin-right: 25px;
+      }
+      .checked {
+        color: orange;
+      }
+      .side {
+        float: left;
+        width: 15%;
+        margin-top: 10px;
+      }
+      .middle {
+        float: left;
+        width: 15%;
+      }
+    }
+  }
+}
+
+.AddRating {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+  input {
+    margin: 0;
+    padding: 0.5em;
+  }
+  input[type="text"] {
+    flex: 3;
+  }
+  input[type="submit"] {
+    flex: 1;
+  }
+}
+
+.Rating {
+  background: $white;
+
+  margin-bottom: ($padding * 1.5);
+  & > * {
+    padding: 0.25rem;
+    margin-left: 1rem;
+    & ~ * {
+      padding-top: 0;
+    }
+    &:first-child {
+      padding-top: $padding;
+    }
+    &:last-child {
+      padding-bottom: $padding;
+    }
+  }
+  p,
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+  }
+  h4 {
+    font-weight: bold;
+  }
+  .header {
+    position: relative;
+    &:after {
+      content: " ";
+      display: table;
+      clear: both;
+    }
+    .fa-star {
+      width: 21px;
+      margin-right: $padding / 8;
+    }
+  }
+  .title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #3cabbb;
+    margin-bottom: 0.75rem;
+
+    &::before,
+    &::after {
+      content: '"';
+    }
+  }
+  .content {
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.75);
+    position: relative;
+  }
+
+  .selected {
+    color: orange;
+  }
+}

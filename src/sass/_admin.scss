@@ -1,0 +1,80 @@
+$blue: #3b4854;
+
+.Admin {
+  display: flex;
+  a {
+    cursor: pointer;
+  }
+  nav {
+    flex: 1;
+    width: 250px;
+    background: $blue;
+    header {
+      position: relative;
+      height: 70px;
+      padding: 15px 0 0 15px;
+      color: #fff;
+      border-bottom: 1px solid lighten($blue, 5%);
+      background: darken($blue, 5%);
+      span {
+        margin-right: 1rem;
+        border: 1px solid #fff;
+        padding: 0.5rem;
+      }
+      .fas {
+        font-size: 2rem;
+      }
+    }
+    ul li:first-child {
+      padding: 15px;
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      border-bottom: 1px solid lighten($blue, 5%);
+    }
+    ul li {
+      list-style: none;
+      position: relative;
+      display: block;
+      padding: 15px 15px 17px 50px;
+      color: #fff;
+      border-bottom: 1px solid lighten($blue, 5%);
+      text-decoration: none;
+    }
+    ul li:hover,
+    ul li:active {
+      background: lighten($blue, 5%);
+    }
+  }
+  main {
+    flex: 5;
+    padding: 25px;
+    background: #f5f5f5;
+    height: 50vh;
+    h1 {
+      height: 70px;
+      margin: -25px -25px 25px -25px;
+      padding: 0 25px;
+      line-height: 66px;
+      font-size: 28px;
+      font-weight: 300;
+      text-transform: uppercase;
+      border-bottom: 1px solid #ddd;
+      background: #fafafa;
+    }
+    .flex-grid {
+      min-height: 180px;
+      border: 1px solid #ddd;
+      h2 {
+        padding: 12px 15px;
+        font-size: 16px;
+        font-weight: 300;
+        text-transform: uppercase;
+        border-bottom: 1px solid #ddd;
+        background: #fafafa;
+      }
+      .content {
+        margin: 0 20px 20px 0;
+      }
+    }
+  }
+}
