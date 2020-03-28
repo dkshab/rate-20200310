@@ -4,6 +4,8 @@ import Rating from "./Rating";
 import Modal from "../Modal";
 import Star from "../stars/Star";
 
+import "../../css/ratings.css";
+
 class Ratings extends Component {
   state = {
     title: "",
@@ -61,77 +63,84 @@ class Ratings extends Component {
     return (
       <div className="Ratings">
         <section>
-          <button onClick={this.toggleModal}>Add Rating</button>
-          <div className="ratings-bar">
-            <span className="heading">User Rating</span>
-            <span className="fa fa-star checked"></span>
-            <span className="fa fa-star checked"></span>
-            <span className="fa fa-star checked"></span>
-            <span className="fa fa-star checked"></span>
-            <span className="fa fa-star"></span>
-            <p>4.1 average based on 254 reviews.</p>
-            <hr />
-            <div className="row">
-              <div className="side">
-                <div>5 star</div>
-              </div>
-              <div className="middle">
-                <div className="bar-container">
-                  <div className="bar-5"></div>
-                </div>
-              </div>
-              <div className="side right">
-                <div>150</div>
-              </div>
-              <div className="side">
-                <div>4 star</div>
-              </div>
-              <div className="middle">
-                <div className="bar-container">
-                  <div className="bar-4"></div>
-                </div>
-              </div>
-              <div className="side right">
-                <div>63</div>
-              </div>
-              <div className="side">
-                <div>3 star</div>
-              </div>
-              <div className="middle">
-                <div className="bar-container">
-                  <div className="bar-3"></div>
-                </div>
-              </div>
-              <div className="side right">
-                <div>15</div>
-              </div>
-              <div className="side">
-                <div>2 star</div>
-              </div>
-              <div className="middle">
-                <div className="bar-container">
-                  <div className="bar-2"></div>
-                </div>
-              </div>
-              <div className="side right">
-                <div>6</div>
-              </div>
-              <div className="side">
-                <div>1 star</div>
-              </div>
-              <div className="middle">
-                <div className="bar-container">
-                  <div className="bar-1"></div>
-                </div>
-              </div>
-              <div className="side right">
-                <div>20</div>
-              </div>
-            </div>
-          </div>
           {ratings.map(rating => (
             <Rating {...rating} key={rating.id} />
           ))}
+          <h3>Ratings & Reviews</h3>
+          <div className="flex">
+            <div className="flex-item one">
+              <div className="row">
+                <div className="side">
+                  <div>5 star</div>
+                </div>
+                <div className="middle">
+                  <div className="bar-container">
+                    <div className="bar-5"></div>
+                  </div>
+                </div>
+                <div className="side right">
+                  <div>150</div>
+                </div>
+                <div className="side">
+                  <div>4 star</div>
+                </div>
+                <div className="middle">
+                  <div className="bar-container">
+                    <div className="bar-4"></div>
+                  </div>
+                </div>
+                <div className="side right">
+                  <div>63</div>
+                </div>
+                <div className="side">
+                  <div>3 star</div>
+                </div>
+                <div className="middle">
+                  <div className="bar-container">
+                    <div className="bar-3"></div>
+                  </div>
+                </div>
+                <div className="side right">
+                  <div>15</div>
+                </div>
+                <div className="side">
+                  <div>2 star</div>
+                </div>
+                <div className="middle">
+                  <div className="bar-container">
+                    <div className="bar-2"></div>
+                  </div>
+                </div>
+                <div className="side right">
+                  <div>6</div>
+                </div>
+                <div className="side">
+                  <div>1 star</div>
+                </div>
+                <div className="middle">
+                  <div className="bar-container">
+                    <div className="bar-1"></div>
+                  </div>
+                </div>
+                <div className="side right">
+                  <div>20</div>
+                </div>
+              </div>
+            </div>
+            <div className="flex-item two">
+              <div className="stars">
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star checked"></span>
+                <span className="fa fa-star"></span>
+              </div>
+              <div className="ratings-number">4/5 stars</div>
+            </div>
+            <div className="flex-item three">
+              <button>Add Rating</button>
+            </div>
+          </div>
         </section>
         {showModal ? (
           <Modal>

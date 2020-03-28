@@ -1,0 +1,157 @@
+.fa {
+  font-size: 1rem;
+}
+
+.checked {
+  color: orange;
+}
+
+/* Three column layout */
+.side {
+  float: left;
+  width: 15%;
+  margin-top: 10px;
+}
+
+.middle {
+  float: left;
+  width: 70%;
+  margin-top: 10px;
+}
+
+/* Place text to the right */
+.right {
+  text-align: right;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The bar container */
+.bar-container {
+  width: 100%;
+  background-color: #f1f1f1;
+  text-align: center;
+  color: white;
+}
+
+/* Individual bars */
+.bar-5 {
+  width: 60%;
+  height: 18px;
+  background-color: #4caf50;
+}
+.bar-4 {
+  width: 30%;
+  height: 18px;
+  background-color: #2196f3;
+}
+.bar-3 {
+  width: 10%;
+  height: 18px;
+  background-color: #00bcd4;
+}
+.bar-2 {
+  width: 4%;
+  height: 18px;
+  background-color: #ff9800;
+}
+.bar-1 {
+  width: 15%;
+  height: 18px;
+  background-color: #f44336;
+}
+
+/* Test grid */
+
+.flex {
+  --columns: 12;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.flex-item {
+  --columns: 12;
+  --width: 0;
+  --gap-constant: 0.05%;
+  --initialbasis: calc(var(--width) / var(--columns) * 100%);
+  --gap: calc((var(--columns) - var(--width)) * var(--gap-constant));
+  border: LavenderBlush 2px solid;
+  border-radius: 8px;
+  padding: 0.5rem;
+  flex-basis: calc(var(--initialbasis) - var(--gap));
+}
+
+.one {
+  --width: 12;
+  height: 12rem;
+}
+
+.two {
+  --width: 12;
+  height: 4rem;
+  text-align: center;
+  align-self: center;
+}
+
+.three {
+  --width: 12;
+  text-align: center;
+  padding: 0;
+}
+
+/* Responsive layout - make the columns stack on top of each other instead of next to each other */
+@media (max-width: 575px) {
+  /* .side,
+  .middle {
+    width: 100%;
+  }
+
+  .right {
+    display: none;
+  } */
+}
+
+@media (min-width: 576px) {
+  .one {
+    --width: 12;
+  }
+  .two {
+    --width: 12;
+  }
+  .three {
+    --width: 4;
+  }
+}
+
+@media (min-width: 768px) {
+  .one {
+    --width: 8;
+  }
+
+  .two {
+    --width: 4;
+  }
+  .three {
+    --width: 12;
+  }
+}
+
+@media (min-width: 1200px) {
+  .one {
+    --width: 7;
+  }
+
+  .two {
+    --width: 2;
+  }
+
+  .three {
+    --width: 3;
+  }
+}

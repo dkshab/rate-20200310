@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
-class Wine extends Component {
-  state = { ratings: [] };
-
+class WineCard extends Component {
   render() {
     const {
       id,
@@ -15,9 +13,10 @@ class Wine extends Component {
       type,
       grape
     } = this.props;
+
     return (
-      <div className="Wine">
-        <div className="Wine--Meta">
+      <div className="WineCard">
+        <div className="WineCard--Meta">
           <div
             className="photo"
             style={{ backgroundImage: `url(${winePhotoURL})` }}
@@ -46,17 +45,14 @@ class Wine extends Component {
             </li>
           </ul>
         </div>
-        <div className="Wine--Description">
+        <div className="WineCard--Description">
           <h1>{title}</h1>
           <h2>Opening the door to the future</h2>
           <p>{description}</p>
-          <p className="read-more">
-            <Link to={`wines/${id}`}>Read More</Link>
-          </p>
         </div>
       </div>
     );
   }
 }
 
-export default Wine;
+export default WineCard;

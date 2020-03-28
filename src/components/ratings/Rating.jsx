@@ -1,6 +1,5 @@
 import React from "react";
 
-import moment from "moment";
 import Star from "../stars/Star";
 
 const Rating = ({ title, content, user, createdAt, starsSelected }) => {

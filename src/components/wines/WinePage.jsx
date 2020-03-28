@@ -4,8 +4,8 @@ import { withRouter } from "react-router-dom";
 import { firestore } from "../../firebase";
 import { collectIdsAndData } from "../../utilities";
 import withUser from "../../context/withUser";
-import Wine from "./Wine";
 import Ratings from "../ratings/Ratings";
+import WineCard from "./WineCard";
 
 class WinePage extends Component {
   state = { wine: null, ratings: [] };
@@ -51,7 +51,7 @@ class WinePage extends Component {
     const { wine, ratings } = this.state;
     return (
       <div>
-        {wine && <Wine {...wine} />}
+        {wine && <WineCard {...wine} />}
         <Ratings ratings={ratings} onCreate={this.createRating} />
       </div>
     );

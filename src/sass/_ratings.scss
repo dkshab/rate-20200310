@@ -2,23 +2,25 @@
   margin: 0 auto;
   width: 50vw;
   section {
-    button {
-      margin-bottom: 1rem;
-    }
     .ratings-bar {
-      margin-bottom: 1rem;
-      background-color: red;
-      .heading {
-        font-size: 25px;
-        margin-right: 25px;
+      margin-bottom: 2rem;
+
+      .title {
+        button {
+          margin-left: 2.75rem;
+        }
+        .heading {
+          font-size: 25px;
+          margin-right: 25px;
+        }
+        .fa {
+          font-size: 1rem;
+        }
+        .checked {
+          color: orange;
+        }
       }
-      .fa {
-        font-size: 25px;
-        margin-right: 25px;
-      }
-      .checked {
-        color: orange;
-      }
+
       .side {
         float: left;
         width: 15%;
@@ -26,9 +28,62 @@
       }
       .middle {
         float: left;
+        width: 70%;
+        margin-top: 10px;
+      }
+      .right {
+        text-align: right;
+      }
+      .row::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      .bar-container {
+        width: 100%;
+        background-color: #f1f1f1;
+        text-align: center;
+        color: white;
+      }
+      .bar-5 {
+        width: 60%;
+        height: 18px;
+        background-color: #4caf50;
+      }
+      .bar-4 {
+        width: 30%;
+        height: 18px;
+        background-color: #2196f3;
+      }
+      .bar-3 {
+        width: 10%;
+        height: 18px;
+        background-color: #00bcd4;
+      }
+      .bar-2 {
+        width: 4%;
+        height: 18px;
+        background-color: #ff9800;
+      }
+      .bar-1 {
         width: 15%;
+        height: 18px;
+        background-color: #f44336;
+      }
+      @media (max-width: 400px) {
+        .side,
+        .middle {
+          width: 100%;
+        }
+        /* Hide the right column on small screens */
+        .right {
+          display: none;
+        }
       }
     }
+  }
+  @media (max-width: 575px) {
+    width: 80vw;
   }
 }
 
