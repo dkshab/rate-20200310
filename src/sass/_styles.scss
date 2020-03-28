@@ -85,6 +85,11 @@ textarea {
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
 }
+
+input[type="file"] {
+  margin: 1rem 0;
+}
+
 textarea {
   height: 10rem;
   padding: 1rem;
@@ -196,5 +201,21 @@ button,
 .star-rating {
   .selected {
     color: orange;
+  }
+}
+
+.UserProfile {
+  margin: 0 auto;
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    margin-top: 3rem;
+    input[type="submit"] {
+      background: green;
+      color: $white;
+    }
   }
 }

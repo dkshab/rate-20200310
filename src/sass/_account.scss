@@ -1,7 +1,7 @@
 .Account {
-  border: 1px solid black;
   .Account--profile {
     display: flex;
+    border: 2px dotted cadetblue;
     margin-bottom: 0.5em;
     img {
       flex: 1;
@@ -23,6 +23,72 @@
         font-weight: bold;
         margin: 0.5em 0.5em;
       }
+    }
+  }
+  .Profile {
+    border: 2px dotted magenta;
+    background-color: #fff;
+    box-shadow: 3px 2px 12px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+    max-width: 35rem;
+    padding: 2rem;
+    transition: all 1s;
+    //max-width: 100%;
+
+    display: grid;
+    grid-column-gap: 2rem;
+    grid-row-gap: 2em;
+    grid-template-areas:
+      "avatar"
+      "name"
+      "bio";
+
+    p {
+      margin: 0;
+    }
+    a {
+      text-align: center;
+      font-weight: bold;
+      text-decoration: none;
+      font-family: inherit;
+    }
+    img {
+      max-width: 100%;
+    }
+    .Profile--username {
+      grid-area: name;
+      color: #848383;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      p > span {
+        color: #ff0168;
+        font-weight: bold;
+      }
+    }
+    .Profile--avatar {
+      display: flex;
+      grid-area: avatar;
+      justify-content: center;
+      img {
+        border: 100%;
+      }
+    }
+    .Profile--bio {
+      grid-area: bio;
+      border-top: 1px solid #ff0168;
+      padding-top: 2rem;
+    }
+  }
+
+  @media (min-width: 700px) {
+    .Profile {
+      grid-template-areas:
+        "avatar" "name"
+        "bio" "bio";
+    }
+    p {
+      margin: 0;
     }
   }
 }

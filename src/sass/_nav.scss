@@ -1,14 +1,19 @@
 header {
   border-bottom: 4px solid #9ea9c1;
 }
-main {
-  border-top: 2px solid #dddddd;
-  margin-top: 0.5rem;
-}
+// main {
+//   border-top: 2px solid #dddddd;
+//   margin-top: 0.5rem;
+// }
 /* places hamburger button and logo next to each other */
 header .row {
   display: flex;
   flex-flow: row nowrap;
+}
+.logo {
+  a {
+    text-decoration: none;
+  }
 }
 /* Screen reader only */
 .sr-only {

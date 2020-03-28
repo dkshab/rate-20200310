@@ -5,13 +5,6 @@ import Star from "../stars/Star";
 const Rating = ({ title, content, user, createdAt, starsSelected }) => {
   const defaultStars = 5;
   return (
-    // <article className="Rating">
-    //   <span className="Rating--author">{user.displayName}</span>
-    //   <span className="Rating--content">{content}</span>
-    //   <span className="Rating--timestamp">
-    //     {moment(createdAt.toDate()).calendar()}
-    //   </span>
-    // </article>
     <div className="Rating">
       <div className="header">
         <div className="meta">

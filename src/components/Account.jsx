@@ -1,28 +1,36 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import moment from "moment";
 
 import { UserContext } from "../context/providers/UserProvider";
 import { signOut } from "../firebase";
-import { Link } from "react-router-dom";
+
+import * as ROUTES from "../../src/constants/routes";
 
 const Account = () => {
   const user = useContext(UserContext);
   return (
     <section className="Account">
-      <div className="Account--profile">
-        {user.photoURL && <img src={user.photoURL} alt={user.displayName} />}
-        <div className="Account--information">
-          <Link to="/profile">
-            <h2>{user.displayName}</h2>
-          </Link>
-          <p className="email">{user.email}</p>
-          <p className="created-at">
-            {moment(user.createdAt.toDate()).calendar()}
+      <div className="Profile">
+        <div className="Profile--username">
+          <h2>{user.email}</h2>
+          <p>
+            <span>6</span> posts
+          </p>
+          <p>
+            <span>22</span> followers
+          </p>
+          <p>
+            <span>1999</span> following
           </p>
         </div>
-      </div>
-      <div>
-        <button onClick={signOut}>Sign Out</button>
+        <div className="Profile--avatar">
+          {user.photoURL && <img src={user.photoURL} alt={user.displayName} />}
+        </div>
+        <p className="Profile--bio">Is a person</p>
+        <Link to={ROUTES.PROFILE}>
+          <p>Update details</p>
+        </Link>
       </div>
     </section>
   );

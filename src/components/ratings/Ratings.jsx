@@ -63,9 +63,6 @@ class Ratings extends Component {
     return (
       <div className="Ratings">
         <section>
-          {ratings.map(rating => (
-            <Rating {...rating} key={rating.id} />
-          ))}
           <h3>Ratings & Reviews</h3>
           <div className="flex">
             <div className="flex-item one">
@@ -138,9 +135,22 @@ class Ratings extends Component {
               <div className="ratings-number">4/5 stars</div>
             </div>
             <div className="flex-item three">
-              <button>Add Rating</button>
+              <p onClick={this.toggleModal}>Add Rating</p>
             </div>
           </div>
+          <div className="filter-bar">
+            <div className="right">
+              <select>
+                <option defaultChecked>Sort by:</option>
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Last long option</option>
+              </select>
+            </div>
+          </div>
+          {ratings.map(rating => (
+            <Rating {...rating} key={rating.id} />
+          ))}
         </section>
         {showModal ? (
           <Modal>

@@ -21,9 +21,11 @@ const NavBar = props => {
             <span className="fa fa-bars" aria-hidden="true"></span>
           </a>
           <div className="logo">
-            <h1>
-              <span className="fas fa-wine-glass-alt"></span> Rate Your Glass
-            </h1>
+            <Link to={ROUTES.HOME}>
+              <h1>
+                <span className="fas fa-wine-glass-alt"></span> Rate Your Glass
+              </h1>
+            </Link>
             <h2>Your Web Design Destination</h2>
           </div>
         </div>
