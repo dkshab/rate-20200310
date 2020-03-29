@@ -1,10 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import moment from "moment";
 
 import { UserContext } from "../context/providers/UserProvider";
-import { signOut } from "../firebase";
-
 import * as ROUTES from "../../src/constants/routes";
 
 const Account = () => {

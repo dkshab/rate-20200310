@@ -1,5 +1,8 @@
 import React, { Component, createContext } from "react";
+import { withRouter } from "react-router-dom";
+
 import { auth, createUserProfileDocument } from "../../firebase";
+import * as ROUTES from "../../constants/routes";
 
 export const UserContext = createContext();
 
@@ -10,6 +13,7 @@ class UserProvider extends Component {
 
   componentDidMount = async () => {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      //console.log(userAuth);
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
         userRef.onSnapshot(snapshot => {
@@ -21,6 +25,9 @@ class UserProvider extends Component {
           );
         });
       }
+      // if (!userAuth) {
+      //   this.props.history.push(ROUTES.SIGNIN);
+      // }
     });
   };
 
@@ -36,4 +43,4 @@ class UserProvider extends Component {
   }
 }
 
-export default UserProvider;
+export default withRouter(UserProvider);

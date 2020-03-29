@@ -54,6 +54,8 @@
     }
     img {
       max-width: 100%;
+      height: auto;
+      //object-fit: cover;
     }
     .Profile--username {
       grid-area: name;
