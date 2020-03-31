@@ -2,7 +2,7 @@ import React, { Component, createContext } from "react";
 import { withRouter } from "react-router-dom";
 
 import { auth, createUserProfileDocument } from "../../firebase";
-import * as ROUTES from "../../constants/routes";
+//import * as ROUTES from "../../constants/routes";
 
 export const UserContext = createContext();
 

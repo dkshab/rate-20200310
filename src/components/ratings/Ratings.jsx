@@ -52,7 +52,9 @@ class Ratings extends Component {
   };
 
   render() {
-    const { ratings } = this.props;
+    const { ratings, ratingsMeta } = this.props;
+    //console.log(ratingsMeta.fiveStar / ratingsMeta.numberOfRatings);
+    console.log(ratingsMeta.ratingsValue / ratingsMeta.numberOfRatings);
     const {
       showModal,
       title,
@@ -72,55 +74,90 @@ class Ratings extends Component {
                 </div>
                 <div className="middle">
                   <div className="bar-container">
-                    <div className="bar-5"></div>
+                    <div
+                      className="bar-5"
+                      style={{
+                        width: `${(ratingsMeta.fiveStar /
+                          ratingsMeta.numberOfRatings) *
+                          100}%`
+                      }}
+                    ></div>
                   </div>
                 </div>
                 <div className="side right">
-                  <div>150</div>
+                  <div>{ratingsMeta.fiveStar}</div>
                 </div>
                 <div className="side">
                   <div>4 star</div>
                 </div>
                 <div className="middle">
                   <div className="bar-container">
-                    <div className="bar-4"></div>
+                    <div
+                      className="bar-4"
+                      style={{
+                        width: `${(ratingsMeta.fourStar /
+                          ratingsMeta.numberOfRatings) *
+                          100}%`
+                      }}
+                    ></div>
                   </div>
                 </div>
                 <div className="side right">
-                  <div>63</div>
+                  <div>{ratingsMeta.fourStar}</div>
                 </div>
                 <div className="side">
                   <div>3 star</div>
                 </div>
                 <div className="middle">
                   <div className="bar-container">
-                    <div className="bar-3"></div>
+                    <div
+                      className="bar-3"
+                      style={{
+                        width: `${(ratingsMeta.threeStar /
+                          ratingsMeta.numberOfRatings) *
+                          100}%`
+                      }}
+                    ></div>
                   </div>
                 </div>
                 <div className="side right">
-                  <div>15</div>
+                  <div>{ratingsMeta.threeStar}</div>
                 </div>
                 <div className="side">
                   <div>2 star</div>
                 </div>
                 <div className="middle">
                   <div className="bar-container">
-                    <div className="bar-2"></div>
+                    <div
+                      className="bar-2"
+                      style={{
+                        width: `${(ratingsMeta.twoStar /
+                          ratingsMeta.numberOfRatings) *
+                          100}%`
+                      }}
+                    ></div>
                   </div>
                 </div>
                 <div className="side right">
-                  <div>6</div>
+                  <div>{ratingsMeta.twoStar}</div>
                 </div>
                 <div className="side">
                   <div>1 star</div>
                 </div>
                 <div className="middle">
                   <div className="bar-container">
-                    <div className="bar-1"></div>
+                    <div
+                      className="bar-1"
+                      style={{
+                        width: `${(ratingsMeta.oneStar /
+                          ratingsMeta.numberOfRatings) *
+                          100}%`
+                      }}
+                    ></div>
                   </div>
                 </div>
                 <div className="side right">
-                  <div>20</div>
+                  <div>{ratingsMeta.oneStar}</div>
                 </div>
               </div>
             </div>
@@ -132,7 +169,11 @@ class Ratings extends Component {
                 <span className="fa fa-star checked"></span>
                 <span className="fa fa-star"></span>
               </div>
-              <div className="ratings-number">4/5 stars</div>
+              <div className="ratings-number">
+                {" "}
+                {ratingsMeta.ratingsValue / ratingsMeta.numberOfRatings} / 5
+                stars
+              </div>
             </div>
             <div className="flex-item three">
               <p onClick={this.toggleModal}>Add Rating</p>

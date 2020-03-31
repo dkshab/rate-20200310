@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Suspense } from "react";
 import { withRouter } from "react-router-dom";
 
 import { firestore } from "../../firebase";
@@ -6,9 +6,21 @@ import { collectIdsAndData } from "../../utilities";
 import withUser from "../../context/withUser";
 import Ratings from "../ratings/Ratings";
 import WineCard from "./WineCard";
+import Spinner from "../Spinner";
 
 class WinePage extends Component {
-  state = { wine: null, ratings: [] };
+  state = {
+    wine: null,
+    ratings: [],
+    numberOfRatings: 0,
+    ratingsValue: 0,
+    oneStar: 0,
+    twoStar: 0,
+    threeStar: 0,
+    fourStar: 0,
+    fiveStar: 0,
+    ratingsMeta: null
+  };
 
   get wineId() {
     return this.props.match.params.id;
@@ -33,7 +45,70 @@ class WinePage extends Component {
 
     this.unsubscribeFromRatings = this.ratingsRef.onSnapshot(snapshot => {
       const ratings = snapshot.docs.map(collectIdsAndData);
-      this.setState({ ratings });
+      ratings.map(rating => {
+        //console.log(rating.starsSelected);
+        if (rating.starsSelected === 1) {
+          //console.log("One: ", rating.starsSelected);
+          this.setState(
+            {
+              oneStar: this.state.oneStar + 1,
+              ratingsValue: rating.starsSelected
+            },
+            () => {
+              console.log(this.state.ratingsValue);
+            }
+          );
+        }
+        if (rating.starsSelected === 2) {
+          //console.log("Two: ", rating.starsSelected);
+          this.setState(
+            {
+              twoStar: this.state.twoStar + 1,
+              ratingsValue: this.state.ratingsValue + rating.starsSelected
+            },
+            () => {
+              console.log(this.state.ratingsValue);
+            }
+          );
+        }
+        if (rating.starsSelected === 3) {
+          //console.log("Three: ", rating.starsSelected);
+          this.setState(
+            {
+              threeStar: this.state.threeStar + 1,
+              ratingsValue: this.state.ratingsValue + rating.starsSelected
+            },
+            () => {
+              console.log(this.state.ratingsValue);
+            }
+          );
+        }
+        if (rating.starsSelected === 4) {
+          //console.log("Four: ", rating.starsSelected);
+          this.setState(
+            {
+              fourStar: this.state.fourStar + 1,
+              ratingsValue: this.state.ratingsValue + rating.starsSelected
+            },
+            () => {
+              console.log(this.state.ratingsValue);
+            }
+          );
+        }
+        if (rating.starsSelected === 5) {
+          //console.log("Five: ", rating.starsSelected);
+          this.setState(
+            {
+              fiveStar: this.state.fiveStar + 1,
+              ratingsValue: this.state.ratingsValue + rating.starsSelected
+            },
+            () => {
+              console.log(this.state.ratingsValue);
+            }
+          );
+        }
+      });
+      this.setState({ ratings, numberOfRatings: ratings.length });
     });
   };
 
@@ -48,11 +123,36 @@ class WinePage extends Component {
   };
 
   render() {
-    const { wine, ratings } = this.state;
+    const {
+      wine,
+      ratings,
+      numberOfRatings,
+      ratingsValue,
+      oneStar,
+      twoStar,
+      threeStar,
+      fourStar,
+      fiveStar
+    } = this.state;
+    const ratingsMeta = {
+      numberOfRatings,
+      ratingsValue,
+      oneStar,
+      twoStar,
+      threeStar,
+      fourStar,
+      fiveStar
+    };
     return (
       <div>
-        {wine && <WineCard {...wine} />}
-        <Ratings ratings={ratings} onCreate={this.createRating} />
+        <Suspense fallback={Spinner}>
+          {wine && <WineCard {...wine} />}
+          <Ratings
+            ratings={ratings}
+            ratingsMeta={ratingsMeta}
+            onCreate={this.createRating}
+          />
+        </Suspense>
       </div>
     );
   }

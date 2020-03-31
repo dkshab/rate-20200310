@@ -10,7 +10,7 @@ import Admin from "../../components/Admin/Admin";
 import WinePage from "../../components/wines/WinePage";
 import Wines from "../../components/wines/Wines";
 import NavBarAuth from "../../apps/AuthApp/NavBarAuth";
-import SignOut from "../../components/SignOut";
+import About from "../../components/About";
 
 const AuthApp = () => {
   return (
@@ -19,12 +19,12 @@ const AuthApp = () => {
       <main>
         <Route exact path={ROUTES.SIGNIN} component={SignInAndSignUp} />
         <Route exact path={ROUTES.HOME} component={HomePage} />
+        <Route exact path={ROUTES.ABOUT} component={About} />
         <Route exact path={ROUTES.ACCOUNT} component={Account} />
         <Route exact path={ROUTES.PROFILE} component={UserProfile} />
         <Route exact path={ROUTES.ADMIN} component={Admin} />
         <Route exact path={ROUTES.WINEPAGE} component={WinePage} />
         <Route exact path={ROUTES.WINES} component={Wines} />
-        <Route exact path={ROUTES.SIGNOUT} component={SignOut} />
       </main>
     </div>
   );
