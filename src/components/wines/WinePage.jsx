@@ -46,67 +46,37 @@ class WinePage extends Component {
     this.unsubscribeFromRatings = this.ratingsRef.onSnapshot(snapshot => {
       const ratings = snapshot.docs.map(collectIdsAndData);
       ratings.map(rating => {
-        //console.log(rating.starsSelected);
         if (rating.starsSelected === 1) {
-          //console.log("One: ", rating.starsSelected);
-          this.setState(
-            {
-              oneStar: this.state.oneStar + 1,
-              ratingsValue: rating.starsSelected
-            },
-            () => {
-              console.log(this.state.ratingsValue);
-            }
-          );
+          this.setState({
+            oneStar: this.state.oneStar + 1,
+            ratingsValue: rating.starsSelected
+          });
         }
         if (rating.starsSelected === 2) {
-          //console.log("Two: ", rating.starsSelected);
-          this.setState(
-            {
-              twoStar: this.state.twoStar + 1,
-              ratingsValue: this.state.ratingsValue + rating.starsSelected
-            },
-            () => {
-              console.log(this.state.ratingsValue);
-            }
-          );
+          this.setState({
+            twoStar: this.state.twoStar + 1,
+            ratingsValue: this.state.ratingsValue + rating.starsSelected
+          });
         }
         if (rating.starsSelected === 3) {
-          //console.log("Three: ", rating.starsSelected);
-          this.setState(
-            {
-              threeStar: this.state.threeStar + 1,
-              ratingsValue: this.state.ratingsValue + rating.starsSelected
-            },
-            () => {
-              console.log(this.state.ratingsValue);
-            }
-          );
+          this.setState({
+            threeStar: this.state.threeStar + 1,
+            ratingsValue: this.state.ratingsValue + rating.starsSelected
+          });
         }
         if (rating.starsSelected === 4) {
-          //console.log("Four: ", rating.starsSelected);
-          this.setState(
-            {
-              fourStar: this.state.fourStar + 1,
-              ratingsValue: this.state.ratingsValue + rating.starsSelected
-            },
-            () => {
-              console.log(this.state.ratingsValue);
-            }
-          );
+          this.setState({
+            fourStar: this.state.fourStar + 1,
+            ratingsValue: this.state.ratingsValue + rating.starsSelected
+          });
         }
         if (rating.starsSelected === 5) {
-          //console.log("Five: ", rating.starsSelected);
-          this.setState(
-            {
-              fiveStar: this.state.fiveStar + 1,
-              ratingsValue: this.state.ratingsValue + rating.starsSelected
-            },
-            () => {
-              console.log(this.state.ratingsValue);
-            }
-          );
+          this.setState({
+            fiveStar: this.state.fiveStar + 1,
+            ratingsValue: this.state.ratingsValue + rating.starsSelected
+          });
         }
+        return true;
       });
       this.setState({ ratings, numberOfRatings: ratings.length });
     });

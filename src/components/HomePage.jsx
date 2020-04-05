@@ -1,8 +1,10 @@
 import React from "react";
 
+//import "../css/home.css";
+
 const HomePage = () => {
   return (
-    <div className="HomePage">
+    <div className="HomePage HomePage--flex-item">
       <div className="hero">
         <div className="hero__inner">
           <h2>Team collaboration done right</h2>
@@ -11,7 +13,7 @@ const HomePage = () => {
           </a>
         </div>
       </div>
-      <div className="tile-row">
+      <div className="tile-row HomePage--flex-item">
         <div className="tile">
           <h4>Work together, even if you're apart</h4>
           <p>

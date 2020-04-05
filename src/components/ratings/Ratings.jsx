@@ -54,7 +54,15 @@ class Ratings extends Component {
   render() {
     const { ratings, ratingsMeta } = this.props;
     //console.log(ratingsMeta.fiveStar / ratingsMeta.numberOfRatings);
-    console.log(ratingsMeta.ratingsValue / ratingsMeta.numberOfRatings);
+    //console.log(ratingsMeta.ratingsValue / ratingsMeta.numberOfRatings);
+    // const averageRating = ? (ratingsMeta.ratingsValue / ratingsMeta.numberOfRatings) > 0: 0;
+    const averageRating =
+      ratingsMeta.ratingsValue / ratingsMeta.numberOfRatings > 0
+        ? ratingsMeta.ratingsValue / ratingsMeta.numberOfRatings
+        : 0;
+
+    //console.log(averageRating);
+
     const {
       showModal,
       title,
@@ -66,6 +74,9 @@ class Ratings extends Component {
       <div className="Ratings">
         <section>
           <h3>Ratings & Reviews</h3>
+          <h4 className="Ratings--number">
+            {ratingsMeta.numberOfRatings} reviews
+          </h4>
           <div className="flex">
             <div className="flex-item one">
               <div className="row">
@@ -163,17 +174,11 @@ class Ratings extends Component {
             </div>
             <div className="flex-item two">
               <div className="stars">
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
+                {[...Array(defaultStars)].map((n, i) => (
+                  <Star key={i} selected={i < averageRating} />
+                ))}
               </div>
-              <div className="ratings-number">
-                {" "}
-                {ratingsMeta.ratingsValue / ratingsMeta.numberOfRatings} / 5
-                stars
-              </div>
+              <div className="ratings-number"> {averageRating} / 5 stars</div>
             </div>
             <div className="flex-item three">
               <p onClick={this.toggleModal}>Add Rating</p>

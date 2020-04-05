@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 
 import Star from "../stars/Star";
 
@@ -9,6 +10,7 @@ const Rating = ({ title, content, user, createdAt, starsSelected }) => {
       <div className="header">
         <div className="meta">
           <h4>{user.displayName}</h4>
+          <p>{moment(createdAt.toDate()).calendar()}</p>
           {[...Array(defaultStars)].map((n, i) => (
             <Star key={i} selected={i < starsSelected} />
           ))}
